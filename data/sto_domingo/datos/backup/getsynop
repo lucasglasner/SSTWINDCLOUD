@@ -1,0 +1,13 @@
+#!/bin/bash
+
+estacion=85586
+
+for yr in {2000..2019}; do
+   url="http://www.ogimet.com/cgi-bin/getsynop?begin=${yr}01010000&end=${yr}12312100&block=${estacion}"
+   file="SYNOP_${yr}"
+   
+   echo $file
+   curl ${url} -o ${file}
+   
+   sleep 1m
+done
